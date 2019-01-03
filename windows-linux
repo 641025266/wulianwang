@@ -1,0 +1,12 @@
+问题现象：
+Windows下的文本文件换行符是\r\n，Linux下的换行符是\n，在Linux下vim打开Windows的文本文件，在行尾会显示^M字符，影响配置文件的阅读，严重的会影响shell脚本的运行。
+问题确认：
+1：file filename
+可以提示文件中存在CRLF符号。
+2：cat -v filename
+可以显示文件中的全部^M字符。
+3：windows notepad打开文件，视图，显示全部字符。
+可以看见行尾的CRLF符号。
+解决方法：
+1：vim 打开文件，:set ff=unix，然后保存
+
